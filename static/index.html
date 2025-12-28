@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Tracker</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+        .task { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        button { background: #ff4444; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>My Tasks</h1>
+    <input type="text" id="taskTitle" placeholder="New Task Name">
+    <button onclick="addTask()" style="background: #28a745;">Add Task</button>
+    <div id="taskList" style="margin-top: 20px;"></div>
+
+    <script>
+        const API_URL = "/tasks";
+
+        async function loadTasks() {
+            const response = await fetch(API_URL);
+            const tasks = await response.json();
+            const list = document.getElementById('taskList');
+            list.innerHTML = tasks.map(t => 
+                `<div class="task">
+                    <span>${t.title}</span>
+                    <button onclick="deleteTask('${t.id}')">Delete</button>
+                 </div>`
+            ).join('');
+        }
+
+        //older version without input validation
+       /*  async function addTask() {
+            const title = document.getElementById('taskTitle').value;
+            await fetch(API_URL, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ title: title })
+            });
+            document.getElementById('taskTitle').value = '';
+            loadTasks();
+        } */
+
+        //new version with input validation
+        async function addTask() {
+            const inputField = document.getElementById('taskTitle');
+            const title = inputField.value.trim(); // .trim() removes spaces from start/end
+
+            // CHECK: Is the title empty?
+            if (!title) {
+                alert("Please enter a task name!"); // Show popup warning
+                return; // Stop here! Do not send to server.
+            }
+
+            await fetch(API_URL, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ title: title })
+            });
+            
+            inputField.value = ''; // Clear the box
+            loadTasks(); // Refresh list
+        }
+
+        async function deleteTask(id) {
+            await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            loadTasks();
+        }
+
+        loadTasks();
+    </script>
+</body>
+</html>
