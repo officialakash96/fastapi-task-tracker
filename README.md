@@ -21,18 +21,22 @@ A professional-grade Task Management System built with **FastAPI**, **SQLite**, 
 ## 🚀 How to Run Locally (bash/Terminal)
 
 1. **Clone the repository**
+    ```bash
     git clone https://github.com/officialakash96/fastapi-task-tracker.git
     cd fastapi-task-tracker
 
 
 2. **Create a Virtual Environment**
+    ```bash
     python3 -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. **Install Dependencies**
+    ```bash
     pip install -r requirements.txt
 
 4. **Start the Server**
+    ```bash
     uvicorn main:app --reload
 
 5. *Access the app*
