@@ -39,7 +39,8 @@ A professional-grade Task Management System built with **FastAPI**, **SQLite**, 
     ```bash
     uvicorn main:app --reload
 
-5. *Access the app*
+5. **Access the app**
+    ```
     Dashboard: Open http://127.0.0.1:8000 in your browser.
     API Docs: Open http://127.0.0.1:8000/docs
 
