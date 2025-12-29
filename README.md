@@ -46,6 +46,8 @@ A professional-grade Task Management System built with **FastAPI**, **SQLite**, 
 
 ----------------------
 📸 Screenshots (Dashboard and Login screen)
+<img width="405" height="481" alt="image" src="https://github.com/user-attachments/assets/43c76f42-b257-4362-a54b-795a88aa69ec" />
+<img width="1316" height="379" alt="image" src="https://github.com/user-attachments/assets/1558e346-49e2-46e5-be4e-29305b531e03" />
 
 
 ----------------------
