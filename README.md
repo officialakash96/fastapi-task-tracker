@@ -45,10 +45,12 @@ A professional-grade Task Management System built with **FastAPI**, **SQLite**, 
     API Docs: Open http://127.0.0.1:8000/docs
 
 ----------------------
-📸 Screenshots (Dashboard and Login screen)
+## 📸 Screenshots (Dashboard and Login screen)
+<br/>
 <img width="405" height="481" alt="image" src="https://github.com/user-attachments/assets/43c76f42-b257-4362-a54b-795a88aa69ec" />
+<br/>
 <img width="1316" height="379" alt="image" src="https://github.com/user-attachments/assets/1558e346-49e2-46e5-be4e-29305b531e03" />
-
+<br/>
 
 ----------------------
 Created by Akash Singh
